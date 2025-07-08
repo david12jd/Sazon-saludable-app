@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menú - Desayunos</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0.5rem 1rem;
+      background: white;
+    }
+
+    .logo img {
+      height: 100px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      background: white;
+      color: #a06e4f;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      padding: 0.7rem 1.2rem;
+      border-radius: 5px;
+    }
+
+    .nav a:hover {
+      background-color: rgba(253, 228, 5, 0.379);
+      color: #333;
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .menu-item1, .menu-item2, .menu-item3, .menu-item4 {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .menu-item1 img { width: 65%; }
+    .menu-item2 img { width: 100%; }
+    .menu-item3 img { width: 90%; }
+    .menu-item4 img { width: 70%; }
+
+    .menu-item1 img,
+    .menu-item2 img,
+    .menu-item3 img,
+    .menu-item4 img {
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+
+    .menu-item1:hover img,
+    .menu-item2:hover img,
+    .menu-item3:hover img,
+    .menu-item4:hover img {
+      transform: scale(1.05);
+    }
+
+    .menu-item1 h3,
+    .menu-item2 h3,
+    .menu-item3 h3,
+    .menu-item4 h3 {
+      margin: 10px 0 5px;
+    }
+
+    .menu-item1 p,
+    .menu-item2 p,
+    .menu-item3 p,
+    .menu-item4 p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: center;
+      }
+      .logo img {
+        height: 80px;
+      }
+      .nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      .nav a {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+      }
+      .menu-container {
+        padding: 15px;
+        gap: 15px;
+      }
+      .menu-item1 img,
+      .menu-item2 img,
+      .menu-item3 img,
+      .menu-item4 img {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .menu-container {
+        grid-template-columns: 1fr;
+      }
+      section[style] h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="logo.png" alt="Logo Sazón Saludable">
+  </div>
+  <div class="botones">
+    <nav class="nav">
+      <a href="../Pagina log in/index.html">Inicio</a>
+      <a href="../Pagina sobre nosotros/sobre_nosotros_historia.html">Sobre nosotros</a>
+      <a href="../Pagina carrito/carrito-resumen.html">Carrito</a>
+      <a href="../Pagina menu/menu.html">Menú</a>
+      <a href="../Pagina contacto/contacto.html">Contacto</a>
+      <a href="../Pagina cuenta/cuenta-usuario.html" class="btn-cuenta">Cuenta</a>
+    </nav>
+  </div>
+</header>
+
+<section style="background-color: #D9B59A; text-align: center; padding: 20px;">
+  <h2 style="margin: 0;">MENÚ DESAYUNO</h2>
+</section>
+
+<section class="menu-container">
+  <div class="menu-item1" onclick="window.location.href='detalle-producto.html'">
+    <img src="ensalada-roja.jpg"  alt="Ensalada Roja">
+    <h3>ENSALADA ROJA</h3>
+    <p>⭐️⭐️⭐️⭐️⭐️</p>
+    <p>Ingredientes: Papas rojas, Kiwi, Zanahorias...</p>
+    <p>90 calorías</p>
+  </div>
+
+  <div class="menu-item2" onclick="window.location.href='detalle-producto2.html'">
+    <img src="especial-kiwi.jpg"  alt="Especial de Kiwi">
+    <h3>ESPECIAL DE KIWI</h3>
+    <p>⭐️⭐️⭐️⭐️⭐️</p>
+    <p>Ingredientes: Granola, kiwi, banano, queso...</p>
+    <p>150 calorías</p>
+  </div>
+
+  <div class="menu-item3" onclick="window.location.href='detalle-producto3.html'">
+    <img src="granola.jpg"  alt="Granola">
+    <h3>GRANOLA</h3>
+    <p>⭐️⭐️⭐️⭐️⭐️</p>
+    <p>Ingredientes: Granola, yogurt griego, frutas mixtas...</p>
+    <p>180 calorías</p>
+  </div>
+
+  <div class="menu-item4" onclick="window.location.href='detalle-producto4.html'">
+    <img src="ensalada-mediterranea.jpg"  alt="Ensalada Mediterranea">
+    <h3>ENSALDA MEDITERRANEA</h3>
+    <p>⭐️⭐️⭐️⭐️⭐️</p>
+    <p>Ingredientes: Cebolla, mango, aguacate, pepino, soya...</p>
+    <p>80 calorías</p>
+  </div>
+</section>
+
+<!-- Script de autenticación -->
+<script>
+  const token = localStorage.getItem('token');
+  const cliente = JSON.parse(localStorage.getItem('cliente'));
+
+  if (!token || !cliente) {
+    window.location.href = '../Pagina log in/log.html';
+  } else {
+    const cuenta = document.querySelector('.btn-cuenta');
+    if (cuenta) {
+      cuenta.textContent = `${cliente.nombres} ${cliente.apellidos}`;
+    }
+  }
+</script>
+
+</body>
+</html>

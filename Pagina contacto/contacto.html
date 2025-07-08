@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Sazón Saludable</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+    }
+
+/* Encabezado */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0.5rem 1rem;
+      background: white;
+    }
+
+    .logo img {
+      height: 100px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 0.9rem;
+      background: white;
+      color: #a06e4f ;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      padding: 0.7rem 1.2rem;
+      border-radius: 5px;
+    }
+
+    .nav a:hover {
+      background-color: rgba(253, 228, 5, 0.379); 
+      color: #333; 
+      transform: scale(1.05); 
+    }
+
+    .nav a:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    }
+
+ 
+    /* Banner y título */
+    .banner {
+      background-color: #ddb6a0;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .banner h1 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+
+    .banner h2 {
+      font-size: 1rem;
+      color: #333;
+      margin-top: 0.3rem;
+      font-weight: normal;
+    }
+    .contacto {
+      background-color: #ddb6a0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .contacto p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contacto .horarios {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .horarios div {
+      margin: 1rem;
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    /* Footer */
+.footer {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.footer-izquierda,
+.footer-centro {
+  flex: 1 1 300px;
+  margin: 1rem;
+}
+
+.redes-sociales {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-centro a {
+  display: block;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  text-decoration: none;
+  color: black;
+}
+
+.footer-centro p {
+  font-size: 0.5rem;
+  margin: 0.2rem 0;
+}
+
+/* ----------- Estilos responsivos ----------- */
+@media (max-width: 1024px) {
+    .nav a {
+      margin: 0 0.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+  
+    .nav a {
+      margin: 0.5rem 0.5rem 0 0;
+    }
+  
+    .bienvenida h1 {
+      font-size: 1.5rem;
+    }
+  
+    .mensaje-principal h2 {
+      font-size: 1.25rem;
+    }
+  
+    .mensaje-principal p {
+      font-size: 0.95rem;
+    }
+  
+    .suscripcion h2 {
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .formulario-suscripcion input {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  
+    .formulario-suscripcion button {
+      width: 100%;
+    }
+  
+    .footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-izquierda, .footer-centro, .footer-derecha {
+      margin: 1rem 0;
+    }
+  }
+  </style>
+</head>
+<body>
+  <header class="header">
+     <div class="logo">
+      <img src="logo.png" alt="Logo Sazón Saludable">
+    </div>
+    <nav class="nav">
+      <a href="../Pagina principal/index.html">Inicio</a>
+      <a href="../Pagina sobre nosotros/sobre_nosotros_historia.html">Sobre nosotros</a>
+      <a href="contacto.html">Contactanos</a>
+      <a href="../Pagina log in/log.html" class="btn-cuenta">Cuenta</a>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <h1>CONTACTANOS</h1>
+    <h2>Canales de atencion al cliente</h2>
+  </div>
+
+  <section class="contacto">
+    <div>
+      <div class="icon">📞</div>
+      <p>Comunícate con nuestro equipo de atención al cliente al siguiente número:</p>
+      <p><strong>Teléfono:</strong> 314567892 WhatsApp</p>
+    </div>
+
+    <div class="horarios">
+      <div>
+        <div class="icon">🕒</div>
+        <p><strong>Horarios de atención al cliente:</strong><br>
+        lunes a viernes<br>
+        8 am - 12pm<br>
+        5pm - 9pm</p>
+      </div>
+      <div>
+        <div class="icon">🕒</div>
+        <p><strong>Horarios de servicio:</strong><br>
+        lunes a viernes<br>
+        7 am - 9am<br>
+        5pm - 9pm</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="footer-izquierda">
+      <div class="footer-logo">
+        <img src="logo_small.png" width="120px" height="120px" alt="Logo Sazón Saludable">
+      </div>
+      <div class="redes-sociales">
+        <a href="https://www.instagram.com/"><img src="icon-instagram.png" width="50px" height="50px" alt="Instagram"></a>
+        <a href="https://www.facebook.com/"><img src="icon-facebook.png" width="50px" height="50px" alt="Facebook"></a>
+        <a href="https://www.tiktok.com/es/"><img src="icon-tiktok.png" width="50px" height="50px" alt="TikTok"></a>
+        <a href="#"><img src="icon-whatsapp.png" width="50px" height="50px" alt="WhatsApp"></a>
+      </div>
+    </div>
+
+    <div class="footer-centro">
+      <a href="#">PQR's</a>
+      <a href="#">Aviso de privacidad</a>
+      <a href="#">Términos y condiciones</a>
+      <p>© 2025 Solid Body Organization - Todos los derechos reservados</p>
+      <p>Teléfono: 6663983</p>
+      <p>Carrera 32 #25-57 Yopal, Casanare, Colombia</p>
+    </div>
+  </footer>
+
+</body>
+</html>

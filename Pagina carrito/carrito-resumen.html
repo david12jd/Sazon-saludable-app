@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resumen Pedido</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #fff; }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0.5rem 1rem;
+        background: white;
+    }
+
+    .logo img { height: 100px; }
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .nav a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.9rem;
+        background: white;
+        color: #a06e4f;
+        transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        padding: 0.7rem 1.2rem;
+        border-radius: 5px;
+    }
+
+    .nav a:hover {
+        background-color: rgba(253, 228, 5, 0.379);
+        color: #333;
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: #deb99b;
+      padding: 10px 0;
+    }
+    .step { text-align: center; }
+    .step img {
+      width: 50px;
+      height: 50px;
+      background: #fffc88;
+      border-radius: 50%;
+      padding: 10px;
+      margin-bottom: 5px;
+    }
+    .step strong { font-size: 18px; display: flex; justify-content: flex-start; }
+
+    .main-content {
+      display: flex;
+      padding: 20px;
+    }
+
+    .left { flex: 2; }
+    h2 { margin-bottom: 20px; }
+    .product {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #555;
+      padding-bottom: 10px;
+    }
+    .product img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+    .product-info { flex: 1; }
+    .product-info h3 {
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    .product-info p { font-size: 12px; color: #555; }
+    .product-info span { font-weight: bold; display: block; margin-top: 5px; }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .actions button {
+      background: #eee;
+      color: #888;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+    }
+    .actions select { padding: 5px; }
+
+    .right {
+      flex: 1;
+      background: #d1b071;
+      padding: 20px;
+      border-radius: 10px;
+      margin-left: 20px;
+    }
+    .cost-summary {
+      background: #ffff99;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .cost-summary h3 { margin-bottom: 15px; }
+    .cost-summary input {
+      width: 80%;
+      padding: 5px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .cost-summary .line {
+      border-bottom: 1px solid #333;
+      margin: 10px 0;
+    }
+    .cost-summary p { margin: 5px 0; }
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .btn-next {
+      background: #28a9e0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      padding: 20px;
+    }
+
+   /* Responsive */
+    @media (max-width: 1024px) {
+      .steps { flex-direction: column; gap: 10px; }
+      .step strong { font-size: 16px; }
+      .main-content { flex-direction: column; }
+      .right { margin-left: 0; margin-top: 20px; }
+    }
+    @media (max-width: 600px) {
+      .header { flex-direction: column; align-items: flex-start; }
+      .nav { flex-direction: column; width: 100%; }
+      .nav a { width: 100%; text-align: center; }
+      .step img { width: 40px; height: 40px; padding: 8px; }
+      .product { flex-direction: column; align-items: flex-start; }
+      .product img { margin: 0 auto; }
+      .actions { flex-direction: row; }
+      .cost-summary input { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="logo">
+    <img src="logo.png" alt="Logo Sazón Saludable">
+  </div>
+  <div class="botones">
+    <nav class="nav">
+      <a href="../Pagina log in/index.html">Inicio</a>
+      <a href="../Pagina sobre nosotros/sobre_nosotros_historia.html">Sobre nosotros</a>
+      <a href="../Pagina carrito/carrito-resumen.html">Carrito</a>
+      <a href="../Pagina menu/menu.html">Menú</a>
+      <a href="../Pagina contacto/contacto.html">Contacto</a>
+      <a href="../Pagina cuenta/cuenta-usuario.html" class="btn-cuenta">Cuenta</a>
+    </nav>
+  </div>
+</header>
+
+<div class="steps">
+  <div class="step">
+    <img src="https://cdn-icons-png.flaticon.com/512/34/34568.png" alt="Carrito">
+    <strong>1. Resumen</strong>
+  </div>
+  <div class="step">
+    <img src="https://cdn-icons-png.flaticon.com/512/1246/1246351.png" alt="Envio">
+    <strong>2. Detalles envio</strong>
+  </div>
+  <div class="step">
+    <img src="https://cdn-icons-png.flaticon.com/512/633/633611.png" alt="Pago">
+    <strong>3. Pago</strong>
+  </div>
+</div>
+
+<div class="main-content">
+  <div class="left">
+    <h2>Resumen pedido</h2>
+    <div id="productos-carrito"></div>
+  </div>
+
+  <div class="right">
+    <div class="cost-summary">
+      <h3>Resumen Costos</h3>
+      <input type="text" placeholder="INGRESE CUPON">
+      <p>SUBTOTAL $<span id="subtotal">0</span></p>
+      <p>ENVIO <span>GRATIS</span></p>
+      <div class="line"></div>
+      <p>TOTAL $<span id="total">0</span></p>
+    </div>
+    <div class="buttons">
+      <button class="btn-next" onclick="guardarTotalesYContinuar()">Siguiente</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  Copyright © 2025 Solid Body Organization
+</footer>
+
+<script src="carrito.js"></script>
+<script>
+  function guardarTotalesYContinuar() {
+    const subtotal = document.getElementById("subtotal").textContent;
+    const total = document.getElementById("total").textContent;
+    localStorage.setItem("subtotal", subtotal);
+    localStorage.setItem("total", total);
+    window.location.href = "carrito-detalle-envio.html";
+  }
+</script>
+
+<!-- Verificación de sesión y nombre de cliente -->
+<script>
+  const token = localStorage.getItem('token');
+  const cliente = JSON.parse(localStorage.getItem('cliente'));
+
+  if (!token || !cliente) {
+    window.location.href = '../Pagina log in/log.html';
+  } else {
+    const cuenta = document.querySelector('.btn-cuenta');
+    if (cuenta) {
+      cuenta.textContent = `${cliente.nombres} ${cliente.apellidos}`;
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recuperar contraseña</title>
+  <style>
+    * { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+        font-family: Arial, sans-serif; 
+    }
+    body { 
+        background: #fff; 
+        min-height: 100vh; 
+        display: flex; 
+        flex-direction: column; 
+    }
+    
+    /* Encabezado */
+.header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 1rem 2rem;
+        background: white;
+        border-radius: 1rem;
+        border-color: #a06e4f;
+    }
+
+    .logo img {
+        height: 100px;
+    }
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .nav a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        font-size: 0.9rem;
+        background: white;
+        color: #a06e4f ;
+        transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        padding: 0.7rem 1.2rem;
+        border-radius: 5px;
+    }
+
+    .nav a:hover {
+        background-color: rgba(253, 228, 5, 0.379); /* Fondo más oscuro */
+        color: #333; /* Texto un poco más oscuro */
+        transform: scale(1.05); /* Efecto de agrandamiento sutil */
+    }
+
+    .nav a:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .container { 
+        flex: 1; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+        padding: 40px; 
+    }
+
+    h1 { 
+        font-size: 32px; 
+        margin-bottom: 20px; 
+    }
+
+    p { 
+        font-size: 14px; 
+        color: #333; 
+        margin-bottom: 30px; 
+    }
+
+    form { 
+        max-width: 400px; 
+        width: 100%; 
+        text-align: left; 
+    }
+
+    label { 
+        font-size: 12px; 
+        text-transform: uppercase; 
+        letter-spacing: 1px; 
+        display: block; 
+        margin-bottom: 5px; 
+    }
+    
+    input[type="email"] { 
+        width: 100%; 
+        padding: 10px; 
+        border: 1px solid #333; 
+        border-radius: 4px; 
+        margin-bottom: 20px; 
+    }
+
+    .btn { 
+        background: #00c853; 
+        color: white; 
+        border: none; 
+        padding: 12px; 
+        border-radius: 4px; 
+        font-weight: bold; 
+        width: 100%; 
+        cursor: pointer; 
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      padding: 20px;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .search-bar input { width: 120px; }
+      .nav-links { gap: 15px; }
+    }
+  </style>
+</head>
+<body>
+ <!-- Encabezado -->
+ <header class="header">
+    <div class="botones">
+      <nav class="nav">
+        <a href="../Pagina principal/index.html">Inicio</a>
+        <a href="../Pagina sobre nosotros/sobre_nosotros_historia.html">Sobre nosotros</a>
+        <a href="../Pagina contacto/contacto.html">Contactanos</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="container">
+    <h1>¿Olvidaste tu contraseña?</h1>
+    <p>Enviaremos un enlace al correo electrónico para crear nueva contraseña</p>
+    <form>
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" placeholder="ejemplo@gmail.com" required>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </div>
+
+  <footer class="footer">
+    Copyright © 2025 Solid Body Organization
+  </footer>
+</body>
+</html>

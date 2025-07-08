@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #fff;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0.5rem 1rem;
+            background: white;
+        }
+
+        .logo img {
+            height: 100px;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #a06e4f;
+            font-weight: bold;
+            font-size: 0.9rem;
+            background: white;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            padding: 0.7rem 1.2rem;
+            border-radius: 5px;
+        }
+
+        .nav a:hover {
+            background-color: rgba(253, 228, 5, 0.379);
+            color: #333;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .sidebar {
+            width: 100%;
+            max-width: 350px;
+            background: #debca9;
+            border-radius: 20px;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #444;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-pic input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .username {
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .sidebar button {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .sidebar .infop {
+            background: #fff8a0;
+            font-weight: bold;
+        }
+
+        .sidebar .pedidos {
+            background: transparent;
+            border: 1px solid #fff8a0;
+            color: white;
+        }
+
+        .content {
+            flex: 1;
+            min-width: 280px;
+            padding: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="number"] {
+            padding: 8px;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
+
+        input[readonly] {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .update-btn {
+            background: #40aef0;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .sidebar {
+                width: 100%;
+            }
+            .content {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav a {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+  <div class="logo">
+    <img src="logo.png" alt="Logo Sazón Saludable">
+  </div>
+  <div class="botones">
+    <nav class="nav">
+      <a href="../Pagina log in/index.html">Inicio</a>
+      <a href="../Pagina sobre nosotros/sobre_nosotros_historia.html">Sobre nosotros</a>
+      <a href="../Pagina carrito/carrito-resumen.html">Carrito</a>
+      <a href="../Pagina menu/menu.html">Menú</a>
+      <a href="../Pagina contacto/contacto.html">Contacto</a>
+      <a href="../Pagina cuenta/cuenta-usuario.html" class="btn-cuenta">Cuenta</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <div class="sidebar">
+    <div class="profile-pic">
+      FOTO DE PERFIL
+      <input type="file" accept="image/*">
+    </div>
+    <div class="username" id="nombreUsuario">Nombre Usuario</div>
+    <button class="infop" onclick="window.location.href='cuenta-usuario.html'">Información personal</button>
+    <button class="pedidos" onclick="window.location.href='cuenta-usuario-pedidos.html'">Pedido</button>
+  </div>
+
+  <div class="content">
+    <form>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" id="inputNombre" readonly>
+        </div>
+        <div class="form-group">
+          <label>Apellido</label>
+          <input type="text" id="inputApellido" readonly>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" id="inputEmail" readonly>
+        </div>
+        <div class="form-group">
+          <label>Fecha de nacimiento</label>
+          <input type="date" id="inputFecha" readonly>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="text" id="inputTelefono">
+        </div>
+        <div class="form-group">
+          <label>Número identificación</label>
+          <input type="text" id="inputIdentificacion" readonly>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Ciudad</label>
+          <input type="text" id="inputCiudad">
+        </div>
+        <div class="form-group">
+          <label>Departamento</label>
+          <input type="text" id="inputDepartamento">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Dirección postal</label>
+        <input type="text" id="inputDireccion">
+      </div>
+
+      <button type="submit" class="update-btn">Actualizar información</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    const token = localStorage.getItem("token");
+    console.log("Token cargado:", token);
+
+    // Si no hay token, redirige
+    if (!token) {
+      console.warn("Token ausente");
+      return window.location.href = "../Pagina log in/log.html";
+    }
+
+    try {
+      const res = await fetch("http://localhost:3000/api/clientes/perfil", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || "Token inválido o expirado");
+      }
+
+      const cliente = await res.json();
+      console.log("Cliente cargado:", cliente);
+
+      // Mostrar nombre
+      document.querySelector(".btn-cuenta").textContent = `${cliente.nombres} ${cliente.apellidos}`;
+      document.getElementById("nombreUsuario").textContent = `${cliente.nombres} ${cliente.apellidos}`;
+
+      // Llenar campos del formulario
+      document.getElementById("inputNombre").value = cliente.nombres || "";
+      document.getElementById("inputApellido").value = cliente.apellidos || "";
+      document.getElementById("inputEmail").value = cliente.correo || "";
+      document.getElementById("inputTelefono").value = cliente.telefono || "";
+      document.getElementById("inputIdentificacion").value = cliente.identificacion || "";
+      document.getElementById("inputCiudad").value = cliente.ciudad || "";
+      document.getElementById("inputDepartamento").value = cliente.departamento || "";
+      document.getElementById("inputDireccion").value = cliente.direccion || "";
+      document.getElementById("inputFecha").value = cliente.fecha_nacimiento || "";
+
+    } catch (error) {
+      console.error("Error al cargar perfil:", error.message);
+      localStorage.clear(); // Limpia datos solo si el token ya no es válido
+      window.location.href = "../Pagina log in/log.html";
+    }
+
+    // Manejador para el formulario de actualización
+    document.querySelector("form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const telefono = document.getElementById("inputTelefono").value;
+      const ciudad = document.getElementById("inputCiudad").value;
+      const departamento = document.getElementById("inputDepartamento").value;
+      const direccion = document.getElementById("inputDireccion").value;
+
+      try {
+        const res = await fetch("http://localhost:3000/api/clientes/perfil", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ telefono, ciudad, departamento, direccion }),
+        });
+
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Error al actualizar");
+
+        alert("Perfil actualizado correctamente");
+      } catch (err) {
+        alert("Error: " + err.message);
+      }
+    });
+  });
+</script>
+
+</body>
+
+</html>
