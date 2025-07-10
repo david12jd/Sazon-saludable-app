@@ -98,7 +98,7 @@ exports.getPedidosCliente = async (req, res) => {
   try {
     const id_cliente = req.user.id_cliente;
     const [rows] = await db.query(
-      "SELECT id_factura, fecha_hora, total, estado FROM factura WHERE id_cliente = ? ORDER BY fecha_hora DESC",
+      "SELECT id_factura, fecha_hora, subtotal, descuento, total, estado FROM factura WHERE id_cliente = ? ORDER BY fecha_hora DESC",
       [id_cliente]
     );
     res.json(rows);
@@ -106,3 +106,45 @@ exports.getPedidosCliente = async (req, res) => {
     res.status(500).json({ error: "Error al obtener pedidos: " + error.message });
   }
 };
+// Cambiar estado de factura
+exports.cambiarEstadoFactura = async (req, res) => {
+  const { id } = req.params;
+  const { estado } = req.body;
+
+  const valoresPermitidos = ['pendiente', 'en camino', 'entregado'];
+  if (!valoresPermitidos.includes(estado)) {
+    return res.status(400).json({ error: 'Estado inválido' });
+  }
+
+  try {
+    const [resultado] = await db.query(
+      "UPDATE factura SET estado = ? WHERE id_factura = ?",
+      [estado, id]
+    );
+
+    if (resultado.affectedRows === 0) {
+      return res.status(404).json({ error: 'Factura no encontrada' });
+    }
+
+    res.json({ mensaje: 'Estado actualizado correctamente', id_factura: id, nuevo_estado: estado });
+  } catch (err) {
+    console.error("Error al actualizar estado:", err);
+    res.status(500).json({ error: 'Error al actualizar el estado de la factura' });
+  }
+};
+
+exports.getTodasLasFacturas = async (req, res) => {
+  try {
+    const [rows] = await db.query(
+      `SELECT f.id_factura, f.fecha_hora, f.total, f.estado,
+              c.nombres AS nombre_cliente, c.apellidos AS apellido_cliente
+       FROM factura f
+       JOIN cliente c ON f.id_cliente = c.id_cliente
+       ORDER BY f.fecha_hora DESC`
+    );
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener todas las facturas: " + error.message });
+  }
+};
+

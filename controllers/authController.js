@@ -6,16 +6,16 @@ const jwt = require('jsonwebtoken');
 const {SECRET_KEY} = require('../configs');
 
 exports.register = async (req, res) => {
-  const { nombres, apellidos, correo, telefono, identificacion, ciudad, departamento, direccion } = req.body;
+  const { nombres, apellidos, correo, telefono, identificacion, ciudad, departamento, direccion, rol= 'cliente' } = req.body;
   const password = req.body.password;
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const [result] = await db.execute(
-      `INSERT INTO cliente (nombres, apellidos, correo, telefono, identificacion, ciudad, departamento, direccion, password) 
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [nombres, apellidos, correo, telefono, identificacion, ciudad, departamento, direccion, hashedPassword]
+      `INSERT INTO cliente (nombres, apellidos, correo, telefono, identificacion, ciudad, departamento, direccion, password, rol) 
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [nombres, apellidos, correo, telefono, identificacion, ciudad, departamento, direccion, hashedPassword, rol]
     );
 
     res.status(201).json({ message: 'Usuario registrado exitosamente', id: result.insertId });
@@ -37,7 +37,7 @@ exports.login = async (req, res) => {
     const validPassword = await bcrypt.compare(password, usuario.password);
     if (!validPassword) return res.status(401).json({ error: 'Contraseña incorrecta' });
 
-    const token = jwt.sign({ id_cliente: usuario.id_cliente, correo: usuario.correo }, SECRET_KEY, { expiresIn: '2h' });
+    const token = jwt.sign({ id_cliente: usuario.id_cliente, correo: usuario.correo, rol: usuario.rol }, SECRET_KEY, { expiresIn: '2h' });
 
     res.json({ message: 'Login exitoso', token,
       cliente: {
@@ -51,7 +51,8 @@ exports.login = async (req, res) => {
         departamento: usuario.departamento,
         direccion: usuario.direccion,
         fecha_nacimiento: usuario.fecha_nacimiento,
-        imagen: usuario.imagen
+        imagen: usuario.imagen,
+        rol: usuario.rol
       }
      });
   } catch (error) {
